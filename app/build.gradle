@@ -1,4 +1,7 @@
-apply plugin: 'com.android.application'
+ext.mainApp = true  //设置为true，表示此module为主app module，一直以application方式编译
+apply from: rootProject.file('cc-settings-2.gradle')
+
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 28
@@ -30,6 +33,10 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    api 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+    //常用公共库集合
     api('com.reizx:andrutil:1.9.9') {
         //retrofit2 相关
         //exclude group: 'com.squareup.retrofit2'
